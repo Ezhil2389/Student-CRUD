@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+</head>
+<body>
+    <form action = "http://localhost:5000/" method = "post"></form>
+    <h1>Student Management System</h1>
+    <a href="/add">Add Student</a>
+    <a href="/update">Update Student</a>
+    <a href="/delete">Delete Student</a>
+    <a href="/search">Search Student</a>
+    <a href="/sort">Sort Student</a>
+    </form>   
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Class</th>
+                <th>Section</th>
+                <th>Teacher</th>
+                <th>GPA</th>
+                <th>Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in results %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+                <td>{{ student[5] }}</td>
+                <td>{{ student[6] }}</td>
+                <td>{{ student[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

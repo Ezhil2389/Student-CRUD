@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Profile form</h3>
+        <a href="/" class="btn-back">Back</a>
+        <form action="/update" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="rollno">Roll no of student to be updated:</label>
+                <input type="text" name="rollno" id="rollno" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="criteria">Update by:</label>
+                <select name="criteria" id="criteria" class="form-control">
+                    {% set value = request.form.get('value') %}
+                    <option value="gpa">GPA</option>
+                    <option value="Fee_status">Fee Status</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="value">Value:</label>
+                <input type="text" name="value" id="value" class="form-control" required>
+            </div>
+            <button type="submit" class="btn-submit">Update</button>
+        </form>
+    </div>
+</body>
+
+</html>

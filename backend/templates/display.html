@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>search by teach name</title>
+</head>
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">name</th>
+        <th scope="col">Rollno</th>
+        <th scope="col">class</th>
+        <th scope="col">section</th>
+        <th scope="col">class teacher</th>
+        <th scope="col">GPA</th>
+        <th scope="col">Fee_status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for st in stu %}
+            <tr>
+                <td>{{ st.name }}</th>
+                <td>{{ st.Rollno }}</td>
+                <td>{{ st.class }}</td>
+                <td>{{ st.section }}</td>
+                <td>{{ st.classteacher }}</td>
+                <td>{{ st.GPA }}</td>
+                <td>{{ st.Fee_status }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>

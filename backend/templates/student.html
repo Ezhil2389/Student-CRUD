@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index Page</title>
+</head>
+<body>
+	<h3>Profiles</h3>
+	<a href="/add">ADD</a>
+    <a href="/delete">ADD</a>
+	<br>
+	<table>
+		<thead>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Class</th>
+            <th>Section</th>
+            <th>Teacher</th>
+            <th>GPA</th>
+            <th>Fee</th>
+		</thead>
+		{% for st in profiles %}
+		<tbody>
+			<tr>
+                <td>{{ st.name }}</th>
+                <td>{{ st.Rollno }}</td>
+                <td>{{ st.class }}</td>
+                <td>{{ st.section }}</td>
+                <td>{{ st.classteacher }}</td>
+                <td>{{ st.GPA }}</td>
+                <td>{{ st.Fee_status }}</td>
+            </tr>
+			<td><a href="/delete/{{data.id}}" type="button">Delete</a></td>
+		</tbody>
+		{% endfor%}
+	</table>
+</body>
+</html>

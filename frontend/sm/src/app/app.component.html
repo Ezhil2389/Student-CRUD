@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="./app.component.css">
+</head>
+<body>
+  <a href="main_page.html" class="title-link">
+    <div class="title-container">
+      <h1>Student Management System</h1>
+    </div>
+  </a>
+<div>
+  <nav class="navigation">
+    <ul>
+      <li>
+        <input type="text" placeholder="Search 🔍" class="search-bar" [(ngModel)]="SearchFilter">
+      </li>
+      <li>
+        <button mat-button color="primary" routerLink="/view-students" class="view-students-btn" (click)="studentList.onViewStudentsClick()">View students</button>
+        <app-student-list [SearchFilter]="SearchFilter" #studentList></app-student-list>
+      </li>
+      <li>
+        <button mat-button color="primary" (click)="openAddStudentDialog()">Add New Students</button>
+      </li>
+      <li>
+        <button mat-button color="primary" (click)="openUpdateOptionsDialog()">Update Students</button>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- ... (Other content) ... -->
+
+</body>
+</html>

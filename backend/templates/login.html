@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dark Mode Toggle</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <style>
+        *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+            background-color: #3c6ed2; /* Discord-inspired background color */
+            animation: tilesAnimation 10s linear infinite;
+            font-family: 'Work Sans', sans-serif;
+            color: #000000; /* Discord-inspired text color */
+        }
+
+        @keyframes tilesAnimation {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: 200px 200px;
+            }
+        }
+
+        body.dark-mode {
+            background-color: #2C2F33; /* Darker background color for dark mode */
+            color: #FFF; /* Text color for dark mode */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .table {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 20px;
+            background-color: #FFF;
+            border-radius: 6px;
+            border: 1px solid #DDD; /* Add a border for a cleaner look */
+            border-collapse: collapse; /* Collapse borders for a seamless appearance */
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #DDD;
+        }
+
+        .table th {
+            background-color: #F5F5F5; /* Use a light background color for table headers */
+            font-weight: 600;
+            color: #333; /* Darken the header text color for better readability */
+            font-size: 14px; /* Decrease the font size for table headers */
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #F8F8F8; /* Use a slightly darker background color for even rows */
+        }
+
+        .table tbody tr:hover {
+            background-color: #F0F0F0; /* Highlight rows on hover */
+        }
+
+        .toggle-slider-container {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle-slider {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            background-color: #7289DA; /* Discord-inspired toggle slider background color */
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .toggle-slider:before {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #FFF; /* Discord-inspired toggle slider icon color */
+            top: 2px;
+            left: 2px;
+            transition: 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-slider.dark:before {
+            transform: translateX(20px);
+        }
+
+        .toggle-slider .slider-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: #99AAB5; /* Discord-inspired toggle slider icon color */
+            border-radius: 50%;
+            color: #FFF;
+            font-size: 12px;
+            transition: 0.2s;
+            transform: translateX(0); /* Initial position */
+        }
+
+        .toggle-slider.active {
+            background-color: #7289DA; /* Active state background color */
+        }
+
+        .toggle-slider.active:before {
+            transform: translateX(100%);
+        }
+
+        .toggle-slider.active .slider-icon {
+            background-color: #FFF;
+            transform: translateX(20px); /* Moved position */
+        }
+
+        .toggle-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+            background-color: rgba(54, 57, 63, 0.8); /* Discord-inspired navbar background color with opacity */
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 20px;
+            color: #FFF; /* Discord-inspired navbar brand text color */
+        }
+
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: #DCDDDE; /* Discord-inspired navbar link text color */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #FFF; /* Hover state color */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Student List</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add">Add</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/delete">Delete</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/update">Update</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sort">Sort</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/filter">Filter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Student List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Roll No</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Section</th>
+                    <th scope="col">Class Teacher</th>
+                    <th scope="col">GPA</th>
+                    <th scope="col">Fee Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for st in stu %}
+                <tr>
+                    <td>{{ st.name }}</td>
+                    <td>{{ st.Rollno }}</td>
+                    <td>{{ st.class }}</td>
+                    <td>{{ st.section }}</td>
+                    <td>{{ st.classteacher }}</td>
+                    <td>{{ st.GPA }}</td>
+                    <td>{{ st.Fee_status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="toggle-slider-container">
+        <label class="toggle-slider">
+            <input type="checkbox" class="toggle-checkbox">
+            <span class="slider-icon">☀️</span> <!-- Sun emoji for light mode -->
+        </label>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.toggle-checkbox').change(function() {
+                $('body').toggleClass('dark-mode');
+                $('.toggle-slider').toggleClass('active');
+                
+                if ($(this).prop('checked')) {
+                    $('.slider-icon').text('🌙'); // Moon emoji for dark mode
+                    $('.slider-icon').css('transform', 'translateX(20px)'); // Move the emoji to the right side
+                } else {
+                    $('.slider-icon').text('☀️'); // Sun emoji for light mode
+                    $('.slider-icon').css('transform', 'translateX(0)'); // Reset the emoji position
+                }
+            });
+        });
+    </script>
+</body>
+</html>

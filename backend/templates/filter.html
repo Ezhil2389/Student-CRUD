@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Students</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Filter Students</h1>
+        <form action="/filter" method="POST">
+            <div class="mb-3">
+                <label for="criteria" class="form-label">Filter by:</label>
+                <select name="criteria" id="criteria" class="form-select">
+                    <option value="class_section">Class and Section</option>
+                    <option value="above_gpa">Above or Equal to GPA</option>
+                    <option value="below_gpa">Below GPA</option>
+                    <option value="fee_paid">Fee Paid</option>
+                    <option value="fee_not_paid">Fee Not Paid</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="value" class="form-label">Value:</label>
+                <input type="text" name="value" id="value" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

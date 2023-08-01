@@ -1,0 +1,61 @@
+/* Neumorphic Card Styles */
+.neumorphic-card {
+    border-radius: 35px;
+background: #590099;
+box-shadow: inset -8px 8px 28px #2b0049,
+            inset 8px -8px 28px #8700e9;
+    border-radius: 12px;
+    padding: 20px;
+    border: 3px solid #a9f2ff;
+    
+  }
+  
+  /* Styling for the "Save" button */
+  .neumorphic-card .save-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .neumorphic-card .save-button button {
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    background: linear-gradient(225deg, #5f00a4, #50008a);
+box-shadow:  -8px 8px 28px #2b0049,
+             8px -8px 28px #8700e9;
+    cursor: pointer;
+  }
+  
+  .neumorphic-card .save-button button:hover {
+    background-color: #45a049;
+  }
+
+  /* Base styles for input fields */
+input.mat-input-element {
+    background-color: #590099;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    
+    transition: box-shadow 0.3s;
+    padding: 20px 20px;
+  }
+  
+  /* Styles for the Neumorphic effect on hover */
+  input.mat-input-element:hover {
+    box-shadow: -4px 4px 14px #2b0049, 4px -4px 14px #8700e9;
+  }
+  
+  /* Styles for the inset Neumorphic effect on focus */
+  input.mat-input-element:focus {
+    box-shadow: inset -4px 4px 14px #2b0049, inset 4px -4px 14px #8700e9;
+    border: 2px solid #a9f2ff;
+  }
+  
+  

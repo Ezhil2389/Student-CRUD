@@ -1,0 +1,28 @@
+<div class="table-container" *ngIf="showTable">
+  <table class="student-table" style="margin-top: 40px;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Class</th>
+        <th>Section</th>
+        <th>Class Teacher</th>
+        <th>GPA</th>
+        <th>Fee Status</th>
+        <th>Action</th> <!-- New column for the delete icon -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.name }}</td>
+        <td>{{ student.rollNumber }}</td>
+        <td>{{ student.selectedClass }}</td>
+        <td>{{ student.selectedSection }}</td>
+        <td>{{ student.classTeacher }}</td>
+        <td>{{ student.gpa }}</td>
+        <td>{{ student.feeStatus }}</td>
+        <td><button mat-icon-button color="warn" (click)="deleteStudent(student)">DELETE</button></td> <!-- Delete icon button -->
+      </tr>
+    </tbody>
+  </table>
+</div>

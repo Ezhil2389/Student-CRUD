@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Students</title>
+    <script>
+        function toggleFields() {
+            var criteria = document.getElementById("criteria").value;
+            var classSectionField = document.getElementById("class-section-field");
+            var valueField = document.getElementById("value-field");
+
+            classSectionField.style.display = criteria === "class_section" ? "block" : "none";
+            valueField.style.display = criteria === "class_section" ? "none" : "block";
+        }
+    </script>
+</head>
+<body>
+    <h1>Filter Students</h1>
+    <form action="/filter" method="POST">
+        <label for="criteria">Filter by:</label>
+        <select name="criteria" id="criteria" onchange="toggleFields()">
+            <option value="class_section">Class and Section</option>
+            <option value="above_gpa">Above or Equal to GPA</option>
+            <option value="below_gpa">Below GPA</option>
+            <option value="fee">Fee Status</option>
+        </select>
+        
+        <div id="class-section-field" style="display: none;">
+            <label for="class">Class:</label>
+            <input type="text" name="class" id="class" >
+            <label for="section">Section:</label>
+            <input type="text" name="section" id="section">
+        </div>
+        
+        <div id="value-field" style="display: none;">
+            <label for="value">Value:</label>
+            <input type="text" name="value" id="value" >
+        </div>
+        
+        <input type="submit" value="Filter">
+    </form>
+</body>
+</html>

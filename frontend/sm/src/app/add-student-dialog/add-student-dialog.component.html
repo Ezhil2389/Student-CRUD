@@ -1,0 +1,39 @@
+<div class="neumorphic-card">
+  <h2 mat-dialog-title>Add New Student</h2>
+  <div mat-dialog-content>
+    <form [formGroup]="studentForm">
+      <mat-form-field floatLabel="always">
+        <input matInput placeholder="Name" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field floatLabel="always">
+        <input matInput placeholder="Roll Number" formControlName="rollNumber" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Class</mat-label>
+        <mat-select formControlName="selectedClass" required>
+          <mat-option *ngFor="let cls of classes" [value]="cls">{{cls}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Section</mat-label>
+        <mat-select formControlName="selectedSection" required>
+          <mat-option *ngFor="let sec of sections" [value]="sec">{{sec}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field floatLabel="always">
+        <input matInput placeholder="Class Teacher" formControlName="classTeacher" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>GPA</mat-label>
+        <input matInput type="number" min="0" max="10" step="0.1" formControlName="gpa" required>
+      </mat-form-field>
+      <div>
+        <mat-checkbox formControlName="feeStatus">Fee Paid</mat-checkbox>
+      </div>
+    </form>
+  </div>
+
+  <div class="save-button">
+    <button mat-raised-button color="primary" (click)="saveStudent()">Save</button>
+  </div>
+</div>

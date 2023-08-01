@@ -1,0 +1,152 @@
+/* Reset some default styles for cleaner layout */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-radius: 72px;
+    margin: 40px auto 0; /* Adjust the margin as needed */
+    width: 1200px;
+   
+    background: #590099;
+    box-shadow:  -22px 22px 44px #330057,
+             22px -22px 44px #7f00db;
+    border: 3px solid #a9f2ff;
+  }
+  
+  h1 {
+    color: #a9f2ff; /* Change this to set the text color */
+    font-size: 36px; /* Change this to adjust the font size */
+    font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif; /* Optionally, change the font-family */
+    text-transform: uppercase; /* Optionally, make the title uppercase */
+    padding: 10px; /* Optional: Add some padding around the text */
+  }
+  .title-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit the color from the parent element */
+  }
+/* Your existing styles for the title container and link */
+.title-container {
+    /* ... */
+  }
+  
+  .title-link {
+    /* ... */
+  }
+  
+  /* New styles for the navigation menu */
+  .navigation {
+    text-align: center; /* Center the menu items */
+    margin-top: 20px; /* Add some spacing below the title */
+
+  }
+  
+  .navigation ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Display menu items in a row */
+    justify-content: center; /* Horizontally align the menu items */
+  }
+  
+  .navigation li {
+    margin: 0 5px; /* Add some spacing between menu items */
+    margin-top: 15px;
+  }
+  
+  /* Common button styles */
+.navigation button {
+  text-decoration: none;
+  color: #a9f2ff;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  padding: 8px 15px;
+  border-radius: 15px;
+  border: 2px solid #a9f2ff;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+/* Default button state */
+.navigation button {
+  background: linear-gradient(225deg, #5f00a4, #50008a);
+  box-shadow: -8px 8px 28px #2b0049, 8px -8px 28px #8700e9;
+}
+
+/* Button state on hover */
+.navigation button:hover {
+  background: linear-gradient(225deg, #50008a, #5f00a4);
+  box-shadow: -4px 4px 14px #2b0049, 4px -4px 14px #8700e9;
+}
+
+/* Button state when pressed */
+.navigation button:active {
+  background: linear-gradient(225deg, #5f00a4, #50008a);
+  box-shadow: inset -6px -6px 12px #2b0049, inset 6px 6px 12px #8700e9;
+}
+
+  .navigation a {
+    text-decoration: none;
+    color: #333; /* Set the link color */
+    font-size: 18px;
+    font-family: Arial, sans-serif; /* Optionally, change the font-family */
+    padding: 8px 15px; /* Add padding to the menu items */
+    border-radius: 15px; /* Add rounded borders to the menu items */
+    background-color: #f0f0f0; /* Set the background color */
+    transition: background-color 0.3s; /* Add a smooth transition effect */
+  }
+  
+  .navigation a:hover {
+    background-color: #ccc; /* Change the background color on hover */
+  }
+  .search-bar{
+    border-radius: 13px;
+  background: #590099;
+  box-shadow: inset -16px 16px 32px #340059,
+            inset 16px -16px 32px #7e00d9;
+    scale: 1.1;
+    height: 45px;
+    margin: 0 10px; /* Add some spacing between menu items */
+    margin-top: 2.3px;
+    border: 2px solid #a9f2ff;
+    color: #a9f2ff;
+    box-shadow: -8px 8px 28px #2b0049, 8px -8px 28px #8700e9;
+    text-align: center;
+    font-size: 15px;
+    transition: 0.3s; /* Add a smooth transition effect */
+  }
+
+  .search-bar:hover{
+    background: linear-gradient(225deg, #50008a, #5f00a4);
+  box-shadow: -4px 4px 14px #2b0049, 4px -4px 14px #8700e9;
+  transition: 0.3s; /* Add a smooth transition effect */
+  }
+
+  .search-bar:focus{
+    background: linear-gradient(225deg, #5f00a4, #50008a);
+    box-shadow: inset -16px 16px 32px #340059,
+            inset 16px -16px 32px #7e00d9;
+            outline: none;
+            transition: 0.3s; /* Add a smooth transition effect */
+  }
+
+  .search-bar::placeholder {
+    /* Set the placeholder to be centered vertically */
+    line-height: 30px; /* Adjust the line-height to center the text as needed */
+    padding-top: 5px; /* Adjust the padding-top to fine-tune the vertical position */
+    color: #a9f2ff; /* Optional: Change the placeholder text color */
+    font-size: 18px;
+    font-family: Arial, sans-serif; 
+    
+  }
+
+  
+
+
+
+  
+    
